@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+</body>
+	<script type="text/javascript">
+		var imgUrl = [
+"https://imageservice.disco.peacocktv.com/pcms/91500bbe-7ab6-11ea-be22-c30c9d24c74e/LAND_16_9/1078x606?territory=US&proposition=NBCUOTT&language=eng&composite=left[0],bottom[0]%7Chttps://staticresources.client.ott.sky.com/images/HighlightsGradient.png&output-format=webp",		
+"https://imageservice.disco.peacocktv.com/pcms/5d0f2a9a-7a90-11ea-a707-63e85862ed87/LAND_16_9/1078x606?territory=US&proposition=NBCUOTT&language=eng&composite=left[0],bottom[0]%7Chttps://staticresources.client.ott.sky.com/images/HighlightsGradient.png&output-format=webp"
+		]
+		var imgUrlMax = imgUrl.length;
+		var imgEl = document.createElement("img");
+		
+
+		imgEl.onload = function() {
+			var new_ts = new Date().getTime();
+		    console.log(`TRACE: ${index}: ${new_ts - old_ts}`);
+		    old_ts = new_ts;
+		    index = (index + 1) % imgUrlMax;
+		    setTimeout(function () { imgEl.src = imgUrl[index]; }, 0);
+		};
+
+
+		var index = 0;
+		var old_ts = new Date().getTime();
+	    imgEl.src = imgUrl[index];
+		document.body.append(imgEl);
+	</script>
+</html>
